@@ -327,6 +327,22 @@
   flex-wrap: wrap;
 }
 
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .image-container .profile {
   width: 250px; /* Atur lebar sesuai kebutuhan */
   height: auto;
@@ -335,6 +351,58 @@
   border: 3px solid #2980b9;
   transition: transform 0.3s ease;
 }
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+      text-align: center;
+    }
+
+    .image-container,
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      justify-items: center;
+    }
+
+    .profile {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .video-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+video.profile {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: #000; /* fallback warna jika video loading lama */
+}
+
   </style>
 </head>
 <body>
@@ -381,8 +449,7 @@
       <h2>Video Saya</h2>
       <div class="media">
         <video controls>
-          <source src="" type="video/mp4" />
-          <source src="" type="video/mp4" />
+          <source src="WhatsApp Video 2025-04-20 at 22.29.10.mp4" type="video/mp4" />
           Browser Anda tidak mendukung elemen video.
         </video>
       </div>
@@ -529,7 +596,60 @@
     <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg" alt="Cat 12" class="profile">
   </div>
 </div>
+<div class="box">
+  <h2>Video API, Pexels (Kucing)</h2>
+  </video>  
+  <div class="video-container">
+    <video class="profile" controls muted playsinline>
+      <source src="1321208-uhd_3840_2160_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="1536322-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="1536315-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="2317031-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="3521318-uhd_3840_2160_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="3150502-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="2356321-uhd_3840_2160_24fps.mp4" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="4201554-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+<script>
+  const videos = document.querySelectorAll('video');
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: 0.5 // Saat 50% terlihat di layar
+  });
+
+  videos.forEach(video => {
+    video.muted = true;        // Autoplay tanpa suara
+    video.setAttribute('loop', true); // Putar ulang otomatis
+    observer.observe(video);
+  });
+</script>
+
+</script>
   </div>
   <div style="display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: bold; font-family: 'Segoe UI', sans-serif; color: #2c3e50; padding: 10px;">
     <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Site Logo" style="height: 40px;">
