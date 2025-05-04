@@ -684,49 +684,88 @@ video.profile {
     <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Site Logo" style="height: 40px;">
     <span>ImageAPI Gallery</span>
   </div>
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Free Tabel</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    td img {
+      width: 30px;
+      height: 30px;
+    }
+    .api-link {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Tabel API Gratis</h2>
   <table>
-    <tr>
-      <th>Logo</th>
-      <th>Nama API</th>
-      <th>Fungsi Utama</th>
-      <th>Link Website</th>
-    </tr>
-    <tr>
-      <td><img src="" class="logo"></td>
-      <td>Pexels</td>
-      <td>Foto dan video berkualitas tinggi gratis</td>
-      <td><a href="https://www.pexels.com" target="_blank">pexels.com/api</a></td>
-    </tr>
-    <tr>
-      <td><img src="" alt="Unsplash Logo" class="logo"></td>
-      <td>Unsplash</td>
-      <td>Foto resolusi tinggi gratis</td>
-      <td><a href="https://unsplash.com" target="_blank">unsplash.com/developers</a></td>
-    </tr>
-    <tr>
-      <td><img src="https://cdn.pixabay.com/photo/2017/01/10/01/40/pixabay-1968935_1280.png" alt="Pixabay Logo" class="logo"></td>
-      <td>Pixabay</td>
-      <td>Foto, video, ilustrasi bebas hak cipta</td>
-      <td><a href="https://pixabay.com" target="_blank">pixabay.com/api</a></td>
-    </tr>
-    <tr>
-      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flickr_logo.svg/512px-Flickr_logo.svg.png" alt="Flickr Logo" class="logo"></td>
-      <td>Flickr</td>
-      <td>Layanan berbagi gambar besar dengan API luas</td>
-      <td><a href="https://www.flickr.com" target="_blank">flickr.com/services/api</a></td>
-    </tr>
-    <tr>
-      <td><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Giphy_logo.png" alt="Giphy Logo" class="logo"></td>
-      <td>Giphy</td>
-      <td>API untuk gambar dan animasi GIF</td>
-      <td><a href="https://developers.giphy.com/" target="_blank">developers.giphy.com</a></td>
-    </tr>
-    <tr>
-      <td><img src="https://static.wikia.nocookie.net/logopedia/images/1/13/Tenor_2018_Logo.png" alt="Tenor Logo" class="logo"></td>
-      <td>Tenor</td>
-      <td>API pencarian dan kirim GIF (populer di chat apps)</td>
-      <td><a href="https://tenor.com" target="_blank">tenor.com/gifapi</a></td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nama API</th>
+        <th>Deskripsi</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/OpenWeatherMap_logo.png" alt="OpenWeatherMap Logo" /></td>
+        <td>OpenWeatherMap</td>
+        <td>API cuaca dengan data terkait kondisi cuaca, suhu, dan prakiraan.</td>
+        <td><a href="https://openweathermap.org/api" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+      <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Pexels_logo.png" alt="Pexels Logo" /></td>
+        <td>Pexels</td>
+        <td>API untuk mencari dan mendapatkan gambar berkualitas tinggi secara gratis.</td>
+        <td><a href="https://www.pexels.com/api/" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+      <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Unsplash_logo_2020.svg" alt="Unsplash Logo" /></td>
+        <td>Unsplash</td>
+        <td>API untuk mendapatkan gambar bebas hak cipta dan berkualitas tinggi.</td>
+        <td><a href="https://unsplash.com/developers" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+      <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/AccuWeather_Logo.png" alt="AccuWeather Logo" /></td>
+        <td>AccuWeather</td>
+        <td>API cuaca untuk prakiraan cuaca harian, cuaca saat ini, dan data cuaca historis.</td>
+        <td><a href="https://developer.accuweather.com/" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+      <tr>
+        <td><img src="https://developer.mozilla.org/en-US/docs/Mozilla_logo_2019.svg" alt="Mozilla Logo" /></td>
+        <td>Mozilla</td>
+        <td>API dari Mozilla yang menyediakan data terkait pengembang, pencarian, dan web.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/API" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+      <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Twitter_Logo_2012.svg" alt="Twitter Logo" /></td>
+        <td>Twitter API</td>
+        <td>API untuk mengakses data Twitter, seperti tweet, profil, dan pengikut.</td>
+        <td><a href="https://developer.twitter.com/en/docs" class="api-link" target="_blank">Kunjungi</a></td>
+      </tr>
+    </tbody>
   </table>
   <footer>
     <span>Temui saya di:</span>
