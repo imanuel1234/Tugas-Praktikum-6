@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portofolio Imanuel Fernando</title>
-   * {
+  <style>
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -162,6 +163,13 @@
       transform: scale(1.1);
     }
 
+    .media video,
+    .media audio {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
     footer {
       background-color: #7a7a7a;
       color: rgb(0, 0, 0);
@@ -312,38 +320,89 @@
     .guestbook-entry strong {
       color: #2980b9;
     }
-
     .image-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.image-container .profile {
+  width: 250px; /* Atur lebar sesuai kebutuhan */
+  height: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 3px solid #2980b9;
+  transition: transform 0.3s ease;
+}
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
     }
 
-    .image-container .profile {
-      width: 250px;
-      height: auto;
-      max-width: 100%;
+    .box {
+      background: #fff;
       border-radius: 12px;
-      border: 3px solid #2980b9;
-      transition: transform 0.3s ease;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+      text-align: center;
+    }
+
+    .image-container,
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      justify-items: center;
     }
 
     .profile {
       width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
-      border: 3px solid #2980b9;
-      transition: transform 0.3s ease;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    .video-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-    footer {
-      text-align: center;
-      background-color: #2980b9;
-      padding: 20px;
-      color: white;
-    }
+video.profile {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: #000; /* fallback warna jika video loading lama */
+}
+
   </style>
 </head>
 <body>
@@ -469,7 +528,7 @@
     let direction = 1; // 1 = ke kanan, -1 = ke kiri
 
     function showSlide(index) {
-      slider.style.transform = `translateX(-${index * 100}%)`;
+      slider.style.transform = translateX(-${index * 100}%);
     }
 
     function autoSlide() {
@@ -520,37 +579,7 @@
       form.reset();
     });
   </script>  
-</div>
-<div class="box">
-  <h2>Video API, Pexels (Kucing)</h2>
-  </video>  
-  <div class="video-container">
-    <video class="profile" controls muted playsinline>
-      <source src="1321208-uhd_3840_2160_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="1536322-hd_1920_1080_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="1536315-hd_1920_1080_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="2317031-hd_1920_1080_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="3521318-uhd_3840_2160_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="3150502-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="2356321-uhd_3840_2160_24fps.mp4" type="video/mp4">
-    </video>
-    <video class="profile" controls muted playsinline>
-      <source src="4201554-hd_1920_1080_30fps.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
+
 <script>
   const videos = document.querySelectorAll('video');
 
@@ -564,130 +593,124 @@
       }
     });
   }, {
-    threshold: 0.5 // Saat 50% terlihat di layar
+    threshold: 0.5  // Play if at least 50% of video is visible
   });
 
   videos.forEach(video => {
-    video.muted = true;        // Autoplay tanpa suara
-    video.setAttribute('loop', true); // Putar ulang otomatis
+    video.muted = true; // Required for autoplay in most browsers
     observer.observe(video);
   });
 </script>
 
-</script>
+ <div class="box">
+  <h2>API, Application Programming Interface (Pexels)</h2>
+  <div class="image-container">
+    <img src="https://images.pexels.com/photos/4587994/pexels-photo-4587994.jpeg" alt="Cat 1" class="profile">
+    <img src="https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg" alt="Cat 2" class="profile">
+    <img src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg" alt="Cat 3" class="profile">
+    <img src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg" alt="Cat 4" class="profile">
+    <img src="https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg" alt="Cat 5" class="profile">
+    <img src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg" alt="Cat 6" class="profile">
+    <img src="https://images.pexels.com/photos/730896/pexels-photo-730896.jpeg" alt="Cat 7" class="profile">
+    <img src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg" alt="Cat 8" class="profile">
+    <img src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg" alt="Cat 9" class="profile">
+    <img src="https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg" alt="Cat 10" class="profile">
+    <img src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg" alt="Cat 11" class="profile">
+    <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg" alt="Cat 12" class="profile">
+  </div>
+</div>
+<div class="box">
+  <h2>Video API, Pexels (Kucing)</h2>
+  <div class="video-container">
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/391851644.sd.mp4?s=beebc6c6612b6c6b13a6d06d55beab9e6e6c1b3f&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/369951678.sd.mp4?s=1a6e6cf0c479648fffa315b7eac37d78b6ad7f75&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/369679057.sd.mp4?s=c91bcbef3d8310a982fb0b6eaa1c703569fd4bb0&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/332511149.sd.mp4?s=160fbca36187e0ef91c95fd625a5be29ee91e61b&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/367210881.sd.mp4?s=c2952a28f30507c2cc4f5e943c1b0b7e418189df&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/391851644.sd.mp4?s=beebc6c6612b6c6b13a6d06d55beab9e6e6c1b3f&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/369951678.sd.mp4?s=1a6e6cf0c479648fffa315b7eac37d78b6ad7f75&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/369679057.sd.mp4?s=c91bcbef3d8310a982fb0b6eaa1c703569fd4bb0&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/332511149.sd.mp4?s=160fbca36187e0ef91c95fd625a5be29ee91e61b&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <video class="profile" controls muted playsinline>
+      <source src="https://player.vimeo.com/external/367210881.sd.mp4?s=c2952a28f30507c2cc4f5e943c1b0b7e418189df&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+  </div>
+</div>
+
   </div>
   <div style="display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: bold; font-family: 'Segoe UI', sans-serif; color: #2c3e50; padding: 10px;">
     <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Site Logo" style="height: 40px;">
-   <h2>📷 Popular Image & GIF APIs</h2>
-<div class="container">
-    <section class="section">
-        <h2>Description</h2>
-        <p>American icon in New York Harbor. Iconic National Monument opened in 1886, offering guided tours & a museum, plus harbor & city views.</p>
-    </section>
-
-    <section class="section">
-        <h2>Details</h2>
-        <p><strong>Location:</strong> New York, NY 10004</p>
-        <p><strong>Phone:</strong> +1 212-363-3200</p>
-        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐ (4.7)</span> based on 99,734 reviews</p>
-    </section>
-
-    <section class="section">
-        <h2>Opening Hours</h2>
-        <p><strong>Open:</strong> 9 AM - 5 PM daily</p>
-    </section>
-
-    <section class="section">
-        <h2>Admission</h2>
-        <p>Tickets starting at: <strong>$25.03</strong></p>
-        <a href="https://www.cityexperiences.com/new-york/city-cruises/statue/new-york-pedestal-reserve/" class="button">Buy Tickets</a>
-    </section>
-
-    <section class="section">
-        <h2>Website</h2>
-        <p><a href="https://www.nps.gov/stli/index.htm" target="_blank">Visit Official Website</a></p>
-    </section>
-
-    <section class="section">
-        <h2>Image</h2>
-        <img src="https://lh5.googleusercontent.com/p/AF1QipNOkjsKcMBL_Fia95bCQvwISPZBNG_Addfw3AYm=w224-h298-k-no" alt="Statue of Liberty" class="image">
-    </section>
-
-    <section class="section">
-        <h2>Nearby Attractions</h2>
-        <p><strong>Balto Statue:</strong> ⭐⭐⭐⭐⭐ (4.7) - <a href="https://www.google.com/maps?q=40.7699742,-73.9710197" target="_blank">View on Map</a></p>
-    </section>
-</div>
-
-<div class="map-box">
-    <h3>📍 Statue of Liberty</h3>
-    <iframe
-      class="map-frame"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.770036215811!2d-74.0466892845933!3d40.68924937933459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250a28c06c7fb%3A0x45f9e40fbeecb8ba!2sStatue%20of%20Liberty!5e0!3m2!1sen!2sid!4v1589513332067!5m2!1sen!2sid"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <p class="map-caption">Liberty Island, New York, NY 10004</p>
-</div>
-
-<table>
-    <thead>
-        <tr>
-            <th>Logo</th>
-            <th>Nama API</th>
-            <th>Fungsi Utama</th>
-            <th>Link Website</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><img src="https://images.pexels.com/lib/api/pexels-white.png" alt="Pexels Logo"></td>
-            <td>Pexels</td>
-            <td>Foto dan video berkualitas tinggi gratis</td>
-            <td><a href="https://pexels.com/api" target="_blank">pexels.com/api</a></td>
-        </tr>
-        <tr>
-            <td><img src="https://unsplash.com/apple-touch-icon.png" alt="Unsplash Logo"></td>
-            <td>Unsplash</td>
-            <td>Foto resolusi tinggi gratis</td>
-            <td><a href="https://unsplash.com/developers" target="_blank">unsplash.com/developers</a></td>
-        </tr>
-        <tr>
-            <td><img src="https://pixabay.com/static/img/public/medium_rectangle_b.png" alt="Pixabay Logo"></td>
-            <td>Pixabay</td>
-            <td>Foto, video, ilustrasi bebas hak cipta</td>
-            <td><a href="https://pixabay.com/api" target="_blank">pixabay.com/api</a></td>
-        </tr>
-        <tr>
-            <td><img src="https://combo.staticflickr.com/pw/images/flickr-logo-share.png" alt="Flickr Logo"></td>
-            <td>Flickr</td>
-            <td>Layanan berbagi gambar besar dengan API luas</td>
-            <td><a href="https://flickr.com/services/api" target="_blank">flickr.com/services/api</a></td>
-        </tr>
-        <tr>
-            <td><img src="https://developers.giphy.com/static/img/giphy_logo_square_social.png" alt="Giphy Logo"></td>
-            <td>Giphy</td>
-            <td>API untuk gambar dan animasi GIF</td>
-            <td><a href="https://developers.giphy.com" target="_blank">developers.giphy.com</a></td>
-        </tr>
-        <tr>
-            <td><img src="https://tenor.com/static/img/tenor-logo-blue.png" alt="Tenor Logo"></td>
-            <td>Tenor</td>
-            <td>API pencarian dan kirim GIF (populer di chat apps)</td>
-            <td><a href="https://tenor.com/gifapi" target="_blank">tenor.com/gifapi</a></td>
-        </tr>
-    </tbody>
-</table>
-
-<footer>
+    <span>ImageAPI Gallery</span>
+  </div>
+  <table>
+    <tr>
+      <th>Logo</th>
+      <th>Nama API</th>
+      <th>Fungsi Utama</th>
+      <th>Link Website</th>
+    </tr>
+    <tr>
+      <td><img src="" class="logo"></td>
+      <td>Pexels</td>
+      <td>Foto dan video berkualitas tinggi gratis</td>
+      <td><a href="https://www.pexels.com" target="_blank">pexels.com/api</a></td>
+    </tr>
+    <tr>
+      <td><img src="" alt="Unsplash Logo" class="logo"></td>
+      <td>Unsplash</td>
+      <td>Foto resolusi tinggi gratis</td>
+      <td><a href="https://unsplash.com" target="_blank">unsplash.com/developers</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://cdn.pixabay.com/photo/2017/01/10/01/40/pixabay-1968935_1280.png" alt="Pixabay Logo" class="logo"></td>
+      <td>Pixabay</td>
+      <td>Foto, video, ilustrasi bebas hak cipta</td>
+      <td><a href="https://pixabay.com" target="_blank">pixabay.com/api</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flickr_logo.svg/512px-Flickr_logo.svg.png" alt="Flickr Logo" class="logo"></td>
+      <td>Flickr</td>
+      <td>Layanan berbagi gambar besar dengan API luas</td>
+      <td><a href="https://www.flickr.com" target="_blank">flickr.com/services/api</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Giphy_logo.png" alt="Giphy Logo" class="logo"></td>
+      <td>Giphy</td>
+      <td>API untuk gambar dan animasi GIF</td>
+      <td><a href="https://developers.giphy.com/" target="_blank">developers.giphy.com</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://static.wikia.nocookie.net/logopedia/images/1/13/Tenor_2018_Logo.png" alt="Tenor Logo" class="logo"></td>
+      <td>Tenor</td>
+      <td>API pencarian dan kirim GIF (populer di chat apps)</td>
+      <td><a href="https://tenor.com" target="_blank">tenor.com/gifapi</a></td>
+    </tr>
+  </table>
+  <footer>
     <span>Temui saya di:</span>
-    <a href="#">📸 Instagram</a>
-    <a href="#">📘 Facebook</a>
-    <a href="#">🎞️ Snack Video</a>
-    <a href="#">🐦 Twitter</a>
+    <a href="jumlah folloer instagram.html">📸 Instagram</a>
+    <a href="facebook.html">📘 Facebook</a>
+    <a href="snack video.html">🎞️ Snack Video</a>
+    <a href="twitter.html">🐦 Twitter</a>
     <p>© 2025 Imanuel. Semua hak dilindungi.</p>
-</footer>
-
+  </footer>
 </body>
 </html>
